@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {Switch, Route} from "react-router-dom";
+import Name from "./components/name/Name";
+import Game from "./components/game/Game";
+import Categories from "./components/categories/Categories";
+import Static from "./components/static/Static";
+import Modal from "./components/modal/Modal";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+
+    return (
+        <>
+            <Switch>
+                <Route exact path='/' component={Name}/>
+                <Route exact path='/gameStart' component={Game}/>
+                <Route exact path='/category' component={Categories}/>
+                <Route exact path='/static' component={Static}/>
+            </Switch>
+            <Modal/>
+            <ToastContainer />
+            </>
+    );
+};
 
 export default App;
